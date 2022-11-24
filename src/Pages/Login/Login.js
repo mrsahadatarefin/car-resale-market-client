@@ -6,7 +6,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 const Login = () => {
   const {register, formState: {errors}, handleSubmit} = useForm();
   
-  const {signIn} =useContext (AuthContext)
+  const {signIn,signINWithGoogle} =useContext (AuthContext)
   const [loginError,setLoginError]=useState('')
  const location =useLocation();
  const navigate = useNavigate();
@@ -31,9 +31,20 @@ console.log(data)
         setLoginError(error.message)
     }
     );
-    
+  }
+  const handleGoogleSingIn =()=>{
+    signINWithGoogle()
+    .then(result =>{
+        const user = result.user
+        console.log(user);
+    })
+    .catch(error => console.error(error))
 
   }
+
+
+
+
   return (
     <div className=" h-[800px] flex justify-center items-center">
       <div className="w-96 p-7">
@@ -95,7 +106,7 @@ console.log(data)
   
   <div className="divider">OR</div>
 
-  <button className="btn btn-outline w-full"> Continue with GooGle</button>
+  <button className="btn btn-outline w-full" onClick={handleGoogleSingIn}> Continue with GooGle</button>
   
 </div>
       

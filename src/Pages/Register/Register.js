@@ -7,12 +7,12 @@ import { AuthContext } from '../../Context/AuthProvider';
 const Register = () => {
     
 const {register, formState: {errors}, handleSubmit} = useForm();
-  const {createUser,updateUser}=useContext(AuthContext)
+  const {createUser,updateUser,signINWithGoogle}=useContext(AuthContext)
 const [signupError,setSingupError]=useState('')
 
 const location =useLocation();
 const navigate = useNavigate();
-const from = location. state?.from?.pathname || "/"
+const from = location.state?.from?.pathname || "/"
 const handleRegister = data =>{
     console.log(data)
     setSingupError('')
@@ -32,6 +32,16 @@ const handleRegister = data =>{
         console.log(error)
         setSingupError(error.message)
     })
+  }
+
+  const handleGoogleSingIn =()=>{
+    signINWithGoogle()
+    .then(result =>{
+        const user = result.user
+        console.log(user);
+    })
+    .catch(error => console.error(error))
+
   }
     return (
         <div className=" h-[800px] flex justify-center items-center">
@@ -104,7 +114,7 @@ const handleRegister = data =>{
     
     <div className="divider">OR</div>
   
-    <button className="btn btn-outline w-full"> Continue with GooGle</button>
+    <button className="btn btn-outline w-full" onClick={handleGoogleSingIn}> Continue with GooGle</button>
     
   </div>
         
