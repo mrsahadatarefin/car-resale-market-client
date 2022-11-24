@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../Layout/main"
+import Fore from "../Pages/ForeOFore/Fore"
 import Home from "../Pages/Home/Home"
 import Login from "../Pages/Login/Login"
 import Register from "../Pages/Register/Register"
@@ -22,7 +23,10 @@ import Register from "../Pages/Register/Register"
                 path:"/register",
                 element:<Register></Register>
             }
-        ]
-    }
+        ],
+       
+        
+    },
+    {path:'*',element:<Fore></Fore>}
 ])
 export default router
