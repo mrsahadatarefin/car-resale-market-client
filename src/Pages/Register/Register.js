@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
@@ -7,16 +7,27 @@ import { AuthContext } from '../../Context/AuthProvider';
 const Register = () => {
     
 const {register, formState: {errors}, handleSubmit} = useForm();
-  const {createUser}=useContext(AuthContext)
-
+  const {createUser,updateUser}=useContext(AuthContext)
+const [signupError,setSingupError]=useState('')
 const handleRegister = data =>{
     console.log(data)
+    setSingupError('')
     createUser(data.email,data.password)
     .then(result=>{
         const user = result.user;
         console.log(user)
+     
+        const userInfo ={displayName:data.name
+
+        }
+        updateUser(userInfo)
+        .then(() =>{})
+        .catch(err => console.log(err))
     })
-    .catch(error => console.log(error))
+    .catch(error =>{
+        console.log(error)
+        setSingupError(error.message)
+    })
   }
     return (
         <div className=" h-[800px] flex justify-center items-center">
@@ -79,7 +90,9 @@ const handleRegister = data =>{
        
        
   
-       
+       {
+        signupError && <p className='text-secondary-600'>{signupError}</p>
+       }
         
       </form>
       <p className="p-5">All ready have an account <Link  className="text-secondary" to="/login">please login</Link></p>
