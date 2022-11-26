@@ -6,7 +6,7 @@ import Service from "./service/Service";
 const Services = () => {
   const [services, setServices] = useState([]);
   const [products, setProducts] = useState([]);
-const [product,setProduct]=useState({})
+const [product,setProduct]=useState(null)
   useEffect(() => {
     fetch(`http://localhost:5000/categoryName`)
       .then((res) => res.json())
@@ -59,6 +59,7 @@ const [product,setProduct]=useState({})
    product&& 
     <BookingModal
 product={product}
+setProduct={setProduct}
 
 ></BookingModal>}
       
