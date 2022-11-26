@@ -6,7 +6,7 @@ import Service from "./service/Service";
 const Services = () => {
   const [services, setServices] = useState([]);
   const [products, setProducts] = useState([]);
-
+const [product,setProduct]=useState({})
   useEffect(() => {
     fetch(`http://localhost:5000/categoryName`)
       .then((res) => res.json())
@@ -50,12 +50,17 @@ const Services = () => {
       </div>
 <div className="grid   grid-cols-1  grid-gap-5 md:grid-cols-2 lg:grid-cols-3    mt-10">
 {products.map((product) => (
-        <Card key={product._id} product={product}>
+        <Card key={product._id} product={product} setProduct={setProduct}>
 
         </Card>
       ))}
 </div>
-<BookingModal></BookingModal>
+{
+   product&& 
+    <BookingModal
+product={product}
+
+></BookingModal>}
       
     </div>
   );

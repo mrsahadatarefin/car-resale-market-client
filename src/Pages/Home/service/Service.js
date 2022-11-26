@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Service = ({service, onClick}) => {
-    console.log(service);
+    // console.log(service);
     const {category_id, category} = service || {};
 
     return (
