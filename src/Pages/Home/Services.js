@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BookingModal from "../BookingModal/BookingModal";
 import Card from "../Card/Card";
 import Service from "./service/Service";
 
@@ -38,7 +39,7 @@ const Services = () => {
           Services
         </h3>
       </div>
-      <div className="grid   grid-cols-1  md:grid-cols-2 lg:grid-cols-3  mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 content-center mt-10">
         {services.map((service) => (
           <Service
             kay={service._id}
@@ -47,12 +48,15 @@ const Services = () => {
           ></Service>
         ))}
       </div>
-
-      {products.map((product) => (
+<div className="grid   grid-cols-1  grid-gap-5 md:grid-cols-2 lg:grid-cols-3    mt-10">
+{products.map((product) => (
         <Card key={product._id} product={product}>
 
         </Card>
       ))}
+</div>
+<BookingModal></BookingModal>
+      
     </div>
   );
 };
