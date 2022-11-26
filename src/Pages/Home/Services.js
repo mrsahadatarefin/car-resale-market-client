@@ -48,7 +48,7 @@ const [product,setProduct]=useState({})
           ></Service>
         ))}
       </div>
-<div className="grid   grid-cols-1  grid-gap-5 md:grid-cols-2 lg:grid-cols-3    mt-10">
+<div className="grid   grid-cols-1   md:grid-cols-2     lg:grid-cols-3 gap-5 mt-10">
 {products.map((product) => (
         <Card key={product._id} product={product} setProduct={setProduct}>
 
