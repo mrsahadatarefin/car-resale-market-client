@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout"
 import Main from "../Layout/main"
+import Admin from "../Pages/Admin/Admin"
 import DashBoard from "../Pages/DashBoard/DashBoard"
 import MyProduct from "../Pages/DashBoard/MyProduct/MyProduct"
 
@@ -33,6 +34,10 @@ import PrivateRoute from "./PriveteRoute/PriveteRoute"
                 path:"/register",
                 element:<Register></Register>
             },
+            {
+                path:"/admin",
+                element:<Admin></Admin>
+            },
             
 
 
@@ -45,7 +50,7 @@ import PrivateRoute from "./PriveteRoute/PriveteRoute"
 
     {
         path:'/dashboard',
-        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        element:<DashboardLayout></DashboardLayout>,
         children:[
             {
                 path:'/dashboard',

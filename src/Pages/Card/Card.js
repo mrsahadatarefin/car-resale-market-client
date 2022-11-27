@@ -1,8 +1,7 @@
 import React from 'react';
 
 const Card = ({product ,setProduct}) => {
-    console.log(product)
-    console.log(setProduct)
+    // console.log(product)
     const { name,description,image,price,originalPrice,useTime,date,} = product 
 
     return (
