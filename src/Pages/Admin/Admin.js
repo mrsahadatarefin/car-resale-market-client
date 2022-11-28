@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Admin = () => {
   const [users, setUsers] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/user`)
+    fetch(`http://localhost:5000/users`)
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [users]);
@@ -11,7 +11,7 @@ const Admin = () => {
   const handleDelete =id=>{
     const proceed = window.confirm('Are you sure, you want ot cancel this user')
 if(proceed){
-   fetch(`http://localhost:5000/user/${id}`,{
+   fetch(`http://localhost:5000/users/${id}`,{
     method:"DELETE"
    })
    .then(res => res.json())

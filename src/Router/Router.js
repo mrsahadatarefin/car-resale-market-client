@@ -46,13 +46,14 @@ import PrivateRoute from "./PriveteRoute/PriveteRoute"
             {
               
                 path:"/Add-product",
-                element:<PrivateRoute><AddProducts></AddProducts></PrivateRoute>
+                element:<AddProducts></AddProducts>
             },
             
             {
                 path:"/want-to-know",
                 element:<Blog></Blog>
             },
+            
             
             
 {

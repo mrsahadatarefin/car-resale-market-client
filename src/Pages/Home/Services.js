@@ -15,14 +15,14 @@ const [product,setProduct]=useState(null)
 
   
   useEffect(() => {
-    fetch(`http://localhost:5000/services`)
+    fetch(`https://products-resale-server-mrsahadatarefin.vercel.app/services`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
 
-  const handleSelectCategory = (categoryId) => {
-    fetch(`http://localhost:5000/services/${categoryId}`)
+  const handleSelectCategory = (categoryName) => {
+    fetch(`https://products-resale-server-mrsahadatarefin.vercel.app/services/by/category/?category=${categoryName}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("data ==> ", data);

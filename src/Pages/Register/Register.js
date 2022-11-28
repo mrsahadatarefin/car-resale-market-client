@@ -17,10 +17,8 @@ const Register = () => {
   const from = location.state?.from?.pathname || "/";
 
   const handleRegister = (data) => {
-
     console.log(data);
-    
-
+  
     setSignUpError("");
     createUser(data.email, data.password)
     

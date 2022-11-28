@@ -3,7 +3,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 
 const BookingModal = ({product,setProduct}) => {
     const {user}=useContext(AuthContext)
-    console.log(user)
+    console.log("user 33 ==> ", user);
     const { name,price,}=product
   
   const handleBooking =event =>{
@@ -23,7 +23,7 @@ const booking = {
    price:price
 
 }
-fetch("http://localhost:5000/bookings",{
+fetch("https://products-resale-server-mrsahadatarefin.vercel.app/bookings",{
     method:'POST',
     headers:{
         'content-type':'application/json'
@@ -58,8 +58,8 @@ fetch("http://localhost:5000/bookings",{
           <p className="mt-5"> <span className="font-bold">Price :</span>{price}$</p>
           <form  onSubmit={handleBooking} className="grid grid-cols-1 gap-3 mt-10 ">
 
-          <input  name="name"  defaultValue={user?.displayName} readOnly type="text" placeholder="Your Name" className="input input-bordered w-full " />
-          <input name="email"  defaultValue={user?.email}readOnly 
+          <input  name="name"  defaultValue={user?.displayName} type="text" placeholder="Your Name" className="input input-bordered w-full " />
+          <input name="email"  defaultValue={user?.email} 
 
  type="email" placeholder="Email " className="input input-bordered w-full " />
           <input name="number" type="text" placeholder="number" className="input input-bordered w-full " />

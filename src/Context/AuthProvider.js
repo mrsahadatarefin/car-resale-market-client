@@ -55,22 +55,29 @@ const AuthProvider = ({ children }) => {
   };
 
   const auth = getAuth();
+  const {currentUser} = auth || {};
+
+  useEffect(() => {
+   console.log("currentUser ===> ", currentUser);
+   if(currentUser?.email) {
+      fetch(`http://localhost:5000/user?email=${currentUser?.email}`)
+      .then(res => res.json())
+      .then(data => {
+         console.log("data ==> ", data);
+         setUser(data)
+      })
+   }
+  }, [currentUser])
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       // console.log("user observing");
-      setUser(currentUser);
-      if(currentUser?.email) {
-         fetch(`http://localhost:5000/user?email=${currentUser?.email}`)
-         .then(res => res.json())
-         .then(data => {
-            setUser(data)
-         })
-      }
+      setUser(null);
       setLoading(false);
     });
     return () => unsubscribe();
   }, []);
+  
 
   const authInfo = {
     createUser,
