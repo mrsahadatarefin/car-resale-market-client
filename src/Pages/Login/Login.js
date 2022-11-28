@@ -12,9 +12,6 @@ const Login = () => {
  const navigate = useNavigate();
  const from = location.state?.from?.pathname || "/"
   const handleLogin = data =>{
-    
-    
-console.log(data)
   
     signIn(data.email,data.password,)
     .then(result =>{

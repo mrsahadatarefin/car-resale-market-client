@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom"
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout"
 import Main from "../Layout/main"
+import AddProducts from "../Pages/AddProducts/AddProducts"
 import Admin from "../Pages/Admin/Admin"
+import Blog from "../Pages/Blog/Blog"
 import DashBoard from "../Pages/DashBoard/DashBoard"
 import MyProduct from "../Pages/DashBoard/MyProduct/MyProduct"
 
@@ -11,6 +13,8 @@ import Home from "../Pages/Home/Home"
 import Login from "../Pages/Login/Login"
 import Register from "../Pages/Register/Register"
 import PrivateRoute from "./PriveteRoute/PriveteRoute"
+
+
 
  const router =createBrowserRouter([
     {
@@ -39,7 +43,22 @@ import PrivateRoute from "./PriveteRoute/PriveteRoute"
                 element:<Admin></Admin>
             },
             
-
+            {
+              
+                path:"/Add-product",
+                element:<PrivateRoute><AddProducts></AddProducts></PrivateRoute>
+            },
+            
+            {
+                path:"/want-to-know",
+                element:<Blog></Blog>
+            },
+            
+            
+{
+    
+    
+}
 
 
 
@@ -54,7 +73,7 @@ import PrivateRoute from "./PriveteRoute/PriveteRoute"
         children:[
             {
                 path:'/dashboard',
-                element:<MyProduct></MyProduct>
+                element:<PrivateRoute><MyProduct></MyProduct></PrivateRoute>
             }
         ]
     },

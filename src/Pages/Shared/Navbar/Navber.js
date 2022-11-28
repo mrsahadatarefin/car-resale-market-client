@@ -21,7 +21,7 @@ const {user,logOut }=useContext(AuthContext)
         
        
         {
-            user?.uid ?<li><button onClick={handelLogOut}>Log out</button ></li>
+            user?.uid?<li><button onClick={handelLogOut}>Log out</button ></li>
             :
            <>
            <li><Link to ='register' >Register</Link ></li>
@@ -31,10 +31,12 @@ const {user,logOut }=useContext(AuthContext)
 
          
         <li><Link to ='/dashboard' >Dashboard</Link ></li>
-        <li><Link to =''>Want ot know</Link ></li>
+        <li><Link to ='/Add-product'>Add product</Link ></li>
+        <li><Link to ='/want-to-know'>Want ot know</Link ></li>
+        
         {user?.admin && <li><Link to ='/admin'>Admin Dashboard</Link ></li>}
     </React.Fragment>
-    
+
     return (
         <div>
             <div className="navbar bg-base-100">

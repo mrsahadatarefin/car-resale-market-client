@@ -8,6 +8,17 @@ const Admin = () => {
       .then((data) => setUsers(data));
   }, [users]);
 
+  const handleDelete =id=>{
+    const proceed = window.confirm('Are you sure, you want ot cancel this user')
+if(proceed){
+   fetch(`http://localhost:5000/user/${id}`,{
+    method:"DELETE"
+   })
+   .then(res => res.json())
+   .then(data => console.log(data))
+}
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="table w-full">
@@ -30,7 +41,7 @@ const Admin = () => {
                 <td>{user.email}</td>
                 <td>{user.category}</td>
                 
-                <td className="btn btn-primary text-black">Delete</td>
+                <td className="btn btn-primary text-black"  onClick={()=>handleDelete(user._id)} >Delete</td>
               </tr>
             ))}
         </tbody>

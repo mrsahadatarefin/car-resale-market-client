@@ -32,7 +32,7 @@ fetch("http://localhost:5000/bookings",{
 })
 .then(res => res.json())
 .then(data => {
-    console.log(data)
+    // console.log(data)
     setProduct(null);
     
 })
