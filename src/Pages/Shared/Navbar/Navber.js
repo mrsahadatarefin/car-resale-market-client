@@ -17,7 +17,7 @@ const {user,logOut }=useContext(AuthContext)
    
    const menuItems =<React.Fragment>
         <li><Link  to =''>Home</Link ></li>
-        <li><Link to ='' >Products</Link ></li>
+        
         
        
         {
