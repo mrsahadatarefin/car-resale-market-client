@@ -8,17 +8,17 @@ const Services = () => {
   const [products, setProducts] = useState([]);
 const [product,setProduct]=useState(null)
   useEffect(() => {
-    fetch(`http://localhost:5000/categoryName`)
+    fetch(`https://products-resale-server-mrsahadatarefin.vercel.app/categoryName`)
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
 
   
-  useEffect(() => {
-    fetch(`https://products-resale-server-mrsahadatarefin.vercel.app/services`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://products-resale-server-mrsahadatarefin.vercel.app/services`)
+  //     .then((res) => res.json())
+  //     .then((data) => setServices(data));
+  // }, []);
 
 
   const handleSelectCategory = (categoryName) => {
